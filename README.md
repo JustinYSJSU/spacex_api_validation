@@ -57,6 +57,6 @@
 - Get all Starlink
 - Get 1 Starlink
 
-## Historic Events
+### Historic Events
 - Get all historic events
 - Get 1 historic event
