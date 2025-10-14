@@ -1,0 +1,20 @@
+type: array
+items:
+  type: object
+  required:
+    - title
+    - event_date_utc
+    - event_date_unix
+    - details
+    - links
+  properties:
+    title: string
+    event_date_utc: string
+    event_date_unix: integer
+    details: string
+    links:
+      type: object
+      required:
+        - article
+      properties:
+        article: string
