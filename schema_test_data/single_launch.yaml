@@ -1,0 +1,132 @@
+type: object
+required:
+  - fairings
+  - links
+  - static_fire_date_utc
+  - static_fire_date_unix
+  - tdb
+  - net
+  - window
+  - rocket
+  - success
+  - failures
+  - details
+  - crew
+  - ships
+  - capsules
+  - payloads
+  - launchpad
+  - auto_update
+  - flight_number
+  - name
+  - date_utc
+  - date_unix
+  - date_local
+  - date_precision
+  - upcoming
+  - cores
+  - id
+properties:
+  fairings:
+    type: [object, 'null']
+
+  links:
+    type: object
+    required:
+      - patch
+      - reddit
+      - flickr
+      - presskit
+      - webcast
+      - youtube_id
+      - article
+      - wikipedia
+    properties:
+      patch:
+        type: object
+        required: [small, large]
+        properties:
+          small: string
+          large: string
+      reddit:
+        type: object
+        required: [campaign, launch, media, recovery]
+        properties:
+          campaign: [string, 'null']
+          launch: [string, 'null']
+          media: [string, 'null']
+          recovery: [string, 'null']
+      flickr:
+        type: object
+        required: [small, original]
+        properties:
+          small:
+            type: array
+            items: string
+          original:
+            type: array
+            items: string
+      presskit: [string, 'null']
+      webcast: [string, 'null']
+      youtube_id: [string, 'null']
+      article: [string, 'null']
+      wikipedia: [string, 'null']
+
+  static_fire_date_utc: [string, 'null']
+  static_fire_date_unix: [integer, 'null']
+  tdb: boolean
+  net: boolean
+  window: integer
+  rocket: string
+  success: [boolean, 'null']
+  failures:
+    type: array
+    items: object
+  details: [string, 'null']
+  crew:
+    type: array
+    items: string
+  ships:
+    type: array
+    items: string
+  capsules:
+    type: array
+    items: string
+  payloads:
+    type: array
+    items: string
+  launchpad: string
+  auto_update: boolean
+  flight_number: integer
+  name: string
+  date_utc: string
+  date_unix: integer
+  date_local: string
+  date_precision: string
+  upcoming: boolean
+  cores:
+    type: array
+    items:
+      type: object
+      required:
+        - core
+        - flight
+        - gridfins
+        - legs
+        - reused
+        - landing_attempt
+        - landing_success
+        - landing_type
+        - landpad
+      properties:
+        core: [string, 'null']
+        flight: [integer, 'null']
+        gridfins: [boolean, 'null']
+        legs: [boolean, 'null']
+        reused: [boolean, 'null']
+        landing_attempt: [boolean, 'null']
+        landing_success: [boolean, 'null']
+        landing_type: [string, 'null']
+        landpad: [string, 'null']
+
+  id: string

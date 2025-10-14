@@ -1,0 +1,57 @@
+type: array
+items:
+  type: object
+  required:
+    - legacy_id
+    - model
+    - type
+    - roles
+    - imo
+    - mmsi
+    - abs
+    - class
+    - mass_kg
+    - mass_lbs
+    - year_built
+    - home_port
+    - status
+    - speed_kn
+    - course_deg
+    - latitude
+    - longitude
+    - last_ais_update
+    - link
+    - image
+    - launches
+    - name
+    - active
+    - id
+  properties:
+    legacy_id: string
+    model: [string, 'null']
+    type: string
+    roles:
+      type: array
+      items: string
+    imo: integer
+    mmsi: integer
+    abs: integer
+    class: integer
+    mass_kg: number
+    mass_lbs: number
+    year_built: integer
+    home_port: string
+    status: string
+    speed_kn: [number, 'null']
+    course_deg: [number, 'null']
+    latitude: [number, 'null']
+    longitude: [number, 'null']
+    last_ais_update: [string, 'null']
+    link: string
+    image: string
+    launches:
+      type: array
+      items: string
+    name: string
+    active: boolean
+    id: string

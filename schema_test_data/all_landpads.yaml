@@ -1,0 +1,54 @@
+type: array
+items:
+     type: object
+     required:
+     - name
+     - full_name
+     - status
+     - type
+     - locality
+     - region
+     - latitude
+     - longitude
+     - landing_attempts
+     - landing_successes
+     - wikipedia
+     - details
+     - launches
+     - id
+     properties:
+        name:
+          type: string
+        full_name:
+          type: string
+        status:
+          type: active
+        type: # this is one of the requried properties name, not a typo
+          type: active
+        locality:
+          type: string
+        region:
+          type: string
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+        landing_attempts:
+          type: integer
+        landing_successes:
+          type: integer
+        wikipedia:
+          type: string
+        details:
+          type: string
+        launches:
+          type: array
+          items:
+            type: string
+        id: 
+          type: string
+        
+        
+        

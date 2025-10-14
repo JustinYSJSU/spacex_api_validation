@@ -1,0 +1,60 @@
+type: object
+required:
+  - heat_shield
+  - launch_payload_mass
+  - launch_payload_vol
+  - return_payload_mass
+  - return_payload_vol
+  - pressurized_capsule
+  - trunk
+  - height_w_trunk
+  - diameter
+  - first_flight
+  - flickr_images
+  - name
+  - type
+  - active
+  - crew_capacity
+  - sidewall_angle_deg
+  - orbit_duration_yr
+  - dry_mass_kg
+  - dry_mass_lb
+  - thrusters
+  - wikipedia
+  - description
+  - id
+properties:
+  heat_shield:
+    type: object
+    required:
+      - material
+      - size_meters
+      - temp_degrees
+      - dev_partner
+    properties:
+      material:
+        type: string
+      size_meters:
+        type: number
+      temp_degrees:
+        type: number
+      dev_partner:
+        type: string
+
+  launch_payload_mass:
+    type: object
+    required: [kg, lb]
+    properties:
+      kg:
+        type: number
+      lb:
+        type: number
+
+  launch_payload_vol:
+    type: object
+    required: [cubic_meters, cubic_feet]
+    properties:
+      cubic_meters:
+        type: number
+      cubic_feet:
+        type: numb

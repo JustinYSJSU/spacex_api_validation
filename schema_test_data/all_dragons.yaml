@@ -1,0 +1,207 @@
+type: array
+items:
+  type: object
+  required:
+    - heat_shield
+    - launch_payload_mass
+    - launch_payload_vol
+    - return_payload_mass
+    - return_payload_vol
+    - pressurized_capsule
+    - trunk
+    - height_w_trunk
+    - diameter
+    - first_flight
+    - flickr_images
+    - name
+    - type
+    - active
+    - crew_capacity
+    - sidewall_angle_deg
+    - orbit_duration_yr
+    - dry_mass_kg
+    - dry_mass_lb
+    - thrusters
+    - wikipedia
+    - description
+    - id
+  properties:
+    heat_shield:
+      type: object
+      required:
+        - material
+        - size_meters
+        - temp_degrees
+        - dev_partner
+      properties:
+        material:
+          type: string
+        size_meters:
+          type: number
+        temp_degrees:
+          type: number
+        dev_partner:
+          type: string
+
+    launch_payload_mass:
+      type: object
+      required: [kg, lb]
+      properties:
+        kg:
+          type: number
+        lb:
+          type: number
+
+    launch_payload_vol:
+      type: object
+      required: [cubic_meters, cubic_feet]
+      properties:
+        cubic_meters:
+          type: number
+        cubic_feet:
+          type: number
+
+    return_payload_mass:
+      type: object
+      required: [kg, lb]
+      properties:
+        kg:
+          type: number
+        lb:
+          type: number
+
+    return_payload_vol:
+      type: object
+      required: [cubic_meters, cubic_feet]
+      properties:
+        cubic_meters:
+          type: number
+        cubic_feet:
+          type: number
+
+    pressurized_capsule:
+      type: object
+      required: [payload_volume]
+      properties:
+        payload_volume:
+          type: object
+          required: [cubic_meters, cubic_feet]
+          properties:
+            cubic_meters:
+              type: number
+            cubic_feet:
+              type: number
+
+    trunk:
+      type: object
+      required: [trunk_volume, cargo]
+      properties:
+        trunk_volume:
+          type: object
+          required: [cubic_meters, cubic_feet]
+          properties:
+            cubic_meters:
+              type: number
+            cubic_feet:
+              type: number
+        cargo:
+          type: object
+          required: [solar_array, unpressurized_cargo]
+          properties:
+            solar_array:
+              type: number
+            unpressurized_cargo:
+              type: boolean
+
+    height_w_trunk:
+      type: object
+      required: [meters, feet]
+      properties:
+        meters:
+          type: number
+        feet:
+          type: number
+
+    diameter:
+      type: object
+      required: [meters, feet]
+      properties:
+        meters:
+          type: number
+        feet:
+          type: number
+
+    first_flight:
+      type: string
+
+    flickr_images:
+      type: array
+      items:
+        type: string
+
+    name:
+      type: string
+
+    type:
+      type: string
+
+    active:
+      type: boolean
+
+    crew_capacity:
+      type: number
+
+    sidewall_angle_deg:
+      type: number
+
+    orbit_duration_yr:
+      type: number
+
+    dry_mass_kg:
+      type: number
+
+    dry_mass_lb:
+      type: number
+
+    thrusters:
+      type: array
+      items:
+        type: object
+        required:
+          - type
+          - amount
+          - pods
+          - fuel_1
+          - fuel_2
+          - isp
+          - thrust
+        properties:
+          type:
+            type: string
+          amount:
+            type: number
+          pods:
+            type: number
+          fuel_1:
+            type: string
+          fuel_2:
+            type: string
+          isp:
+            type: number
+          thrust:
+            type: object
+            required: [kN, lbf]
+            properties:
+              kN:
+                type: number
+              lbf:
+                type: number
+
+    wikipedia:
+      type: string
+
+    description:
+      type: string
+
+    id:
+      type: string

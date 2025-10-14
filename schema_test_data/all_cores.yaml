@@ -1,0 +1,41 @@
+type: array
+items:
+     type: object
+     required:
+     - block
+     - reuse_count
+     - rtls_attempts
+     - rtls_landings
+     - asds_attempts
+     - asds_landings
+     - last_update
+     - launches
+     - serial
+     - status
+     - id
+     properties:
+            block:
+              type: integer
+            reuse_count:
+              type: integer
+            rtls_attempts:
+              type: integer
+            rtls_landings:
+              type: integer
+            asds_attempts:
+              type: integer
+            asds_landings:
+              type: integer
+            last_update:
+              type: string
+            launches:
+              type: array
+              items:
+                type: string
+            serial:
+              type: string
+            status:
+              type: string
+            id:
+              type: string
+              

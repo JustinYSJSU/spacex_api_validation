@@ -1,0 +1,35 @@
+type: object
+required:
+  - fairings
+  - links
+  - static_fire_date_utc
+  - static_fire_date_unix
+  - tdb
+  - net
+  - window
+  - rocket
+  - success
+  - failures
+  - details
+  - crew
+  - ships
+  - capsules
+  - payloads
+  - launchpad
+  - auto_update
+  - flight_number
+  - name
+  - date_utc
+  - date_unix
+  - date_local
+  - date_precision
+  - upcoming
+  - cores
+  - id
+properties:
+  fairings:
+    type: [object, 'null']
+
+  links:
+    type: object
+    required:

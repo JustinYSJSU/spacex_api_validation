@@ -1,0 +1,55 @@
+type: object
+required:
+- headquarters
+- links
+- name
+- founder
+- founded
+- employees
+- vehicles
+- launch_sites
+- test_sites
+- ceo
+- cto
+- coo
+- cto_propulsion
+- valutation
+- summary
+- id
+
+properties:
+        headquarters:
+          type: array
+          items:
+            type: string
+        links:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+        founder:
+          type: string
+        employees: 
+          type: string
+        vehicles:
+          type: integer
+        launch_sites:
+          type: integer
+        test_sites:
+          type: integer
+        ceo:
+          type: string
+        cto:
+          type: string
+        coo: 
+          type: string
+        cto_propulsion:
+          type: string
+        valutation:
+          type: integer
+        summary: 
+          type: string
+        id:
+          type: string
+          

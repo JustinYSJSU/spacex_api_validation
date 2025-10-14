@@ -1,0 +1,26 @@
+type: object
+required:
+- name
+- agency
+- image
+- wikipedia
+- launches
+- status
+- id
+properties:
+        name:
+          type: string
+        agency:
+          type: string
+        image:
+          type: string
+        wikipedia: 
+          type: string
+          launches:
+              type: array
+              items:
+                 type: string
+        status:
+          type: string
+          id:
+            type: string

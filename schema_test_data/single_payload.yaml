@@ -1,0 +1,85 @@
+type: object
+required:
+  - dragon
+  - name
+  - type
+  - reused
+  - launch
+  - customers
+  - norad_ids
+  - nationalities
+  - manufacturers
+  - mass_kg
+  - mass_lbs
+  - orbit
+  - reference_system
+  - regime
+  - longitude
+  - semi_major_axis_km
+  - eccentricity
+  - periapsis_km
+  - apoapsis_km
+  - inclination_deg
+  - period_min
+  - lifespan_years
+  - epoch
+  - mean_motion
+  - raan
+  - arg_of_pericenter
+  - mean_anomaly
+  - id
+properties:
+  dragon:
+    type: object
+    required:
+      - capsule
+      - mass_returned_kg
+      - mass_returned_lbs
+      - flight_time_sec
+      - manifest
+      - water_landing
+      - land_landing
+    properties:
+      capsule: [string, 'null']
+      mass_returned_kg: [number, 'null']
+      mass_returned_lbs: [number, 'null']
+      flight_time_sec: [number, 'null']
+      manifest: [object, 'null']
+      water_landing: [boolean, 'null']
+      land_landing: [boolean, 'null']
+
+  name: string
+  type: string
+  reused: boolean
+  launch: string
+  customers:
+    type: array
+    items: string
+  norad_ids:
+    type: array
+    items: integer
+  nationalities:
+    type: array
+    items: string
+  manufacturers:
+    type: array
+    items: string
+  mass_kg: number
+  mass_lbs: number
+  orbit: string
+  reference_system: string
+  regime: string
+  longitude: [number, 'null']
+  semi_major_axis_km: number
+  eccentricity: number
+  periapsis_km: number
+  apoapsis_km: number
+  inclination_deg: number
+  period_min: number
+  lifespan_years: number
+  epoch: string
+  mean_motion: number
+  raan: number
+  arg_of_pericenter: number
+  mean_anomaly: number
+  id: string

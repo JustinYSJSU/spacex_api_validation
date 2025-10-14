@@ -1,0 +1,51 @@
+type: array
+items:
+   type: object
+   required:
+   - name
+   - full_name
+   - locality
+   - region
+   - timezone
+   - latitude
+   - longitude
+   - launch_attempts
+   - launch_successes
+   - rockets
+   - launches
+   - status
+   - id
+   properties:
+      name:
+        type: string
+      full_name:
+        type: string
+      locality:
+        type: string
+      region:
+        type: string
+      timezone:
+        type: string
+      latitude:
+        type: number
+        format: double
+      longitude:
+        type: number
+        format: double
+      launch_attempts:
+        type: number
+      landing_attempts:
+        type: number
+      rockets:
+       type: array
+       items:
+         type: string
+      launches: 
+        type: array
+        items:
+          type: string
+      status:
+        type: string
+      id: 
+        type: string
+      

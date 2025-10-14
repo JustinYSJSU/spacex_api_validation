@@ -1,0 +1,170 @@
+type: object
+required:
+  - height
+  - diameter
+  - mass
+  - first_stage
+  - second_stage
+  - engines
+  - landing_legs
+  - payload_weights
+  - flickr_images
+  - name
+  - type
+  - active
+  - stages
+  - boosters
+  - cost_per_launch
+  - success_rate_pct
+  - first_flight
+  - country
+  - company
+  - wikipedia
+  - description
+  - id
+properties:
+  height:
+    type: object
+    required:
+      - meters
+      - feet
+    properties:
+      meters: number
+      feet: number
+
+  diameter:
+    type: object
+    required:
+      - meters
+      - feet
+    properties:
+      meters: number
+      feet: number
+
+  mass:
+    type: object
+    required:
+      - kg
+      - lb
+    properties:
+      kg: number
+      lb: number
+
+  first_stage:
+    type: object
+    required:
+      - thrust_sea_level
+      - thrust_vacuum
+      - reusable
+      - engines
+      - fuel_amount_tons
+      - burn_time_sec
+    properties:
+      thrust_sea_level:
+        type: object
+        required: [kN, lbf]
+        properties:
+          kN: number
+          lbf: number
+      thrust_vacuum:
+        type: object
+        required: [kN, lbf]
+        properties:
+          kN: number
+          lbf: number
+      reusable: boolean
+      engines: integer
+      fuel_amount_tons: number
+      burn_time_sec: number
+
+  second_stage:
+    type: object
+    required:
+      - thrust
+      - payloads
+      - reusable
+      - engines
+      - fuel_amount_tons
+      - burn_time_sec
+    properties:
+      thrust:
+        type: object
+        required: [kN, lbf]
+        properties:
+          kN: number
+          lbf: number
+      payloads:
+        type: object
+        required:
+          - composite_fairing
+          - option_1
+        properties:
+          composite_fairing:
+            type: object
+            required:
+              - height
+              - diameter
+            properties:
+              height:
+                type: object
+                required: [meters, feet]
+                properties:
+                  meters: number
+                  feet: number
+              diameter:
+                type: object
+                required: [meters, feet]
+                properties:
+                  meters: number
+                  feet: number
+          option_1: string
+      reusable: boolean
+      engines: integer
+      fuel_amount_tons: number
+      burn_time_sec: number
+
+  engines:
+    type: object
+    required:
+      - isp
+      - thrust_sea_level
+      - thrust_vacuum
+      - number
+      - type
+      - version
+      - layout
+      - engine_loss_max
+      - propellant_1
+      - propellant_2
+      - thrust_to_weight
+    properties:
+      isp:
+        type: object
+        required: [sea_level, vacuum]
+        properties:
+          sea_level: number
+          vacuum: number
+      thrust_sea_level:
+        type: object
+        required: [kN, lbf]
+        properties:
+          kN: number
+          lbf: number
+      thrust_vacuum:
+        type: object
+        required: [kN, lbf]
+        properties:
+          kN: number
+          lbf: number
+      number: integer
+      type: string
+      version: string
+      layout: string
+      engine_loss_max: integer
+      propellant_1: string
+      propellant_2: string
+      thrust_to_weight: number
+
+  landing_legs:
+    type: object
+    required:
