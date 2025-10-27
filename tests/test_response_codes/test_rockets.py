@@ -5,19 +5,19 @@ class TestResponseCodesRockets:
 
     BASE_URL = "https://api.spacexdata.com/v4/rockets"
 
-    def test_get_all_rockets(self):
-        url = self.BASE_URL
+    @pytest.mark.parametrize("route, id_type, expected_response_code", 
+        [("/rockets", "None", 200), 
+         ("/rockets/valid_id", "valid_ids", 200), 
+         ("/rockets/invalid_id", "invalid_ids", 404)])
+    def test_all_landpad_responses(self, response_code_data, route, id_type, expected_response_code):
+        if route == "/rockets":
+            url = self.BASE_URL
+        else:
+            rocket_id = ""
+            if id_type == "valid_ids":
+                rocket_id = response_code_data[id_type]['rockets']
+            else:
+                rocket_id = response_code_data[id_type]
+            url = f"{self.BASE_URL}/{rocket_id}"
         response = requests.get(url)
-        assert response.status_code == 200, f"Expected status code 200 for {self.BASE_URL}, but received {response.status_code} for {url}"
-    
-    def test_valid_rocket_id(self, response_code_data):
-        valid_rocket_id = response_code_data['valid_ids']['rockets']
-        url = f"{self.BASE_URL}/{valid_rocket_id}"
-        response = requests.get(url)
-        assert response.status_code == 200, f"Expected status code 200 for {url}, but received {response.status_code}"
-    
-    def test_invalid_rocket_id(self, response_code_data):
-        invalid_rocket_id = response_code_data['invalid_ids']['generic_invalid']
-        url = f"{self.BASE_URL}/{invalid_rocket_id}"
-        response = requests.get(url)
-        assert response.status_code == 404, f"Expected response code 404, but received {response.status_code} for {url}"
+        assert response.status_code == expected_response_code

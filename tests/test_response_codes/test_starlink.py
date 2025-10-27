@@ -5,19 +5,19 @@ class TestResponseCodesStarlink:
 
     BASE_URL = "https://api.spacexdata.com/v4/starlink"
 
-    def test_get_all_satellites(self):
-        url = self.BASE_URL
+    @pytest.mark.parametrize("route, id_type, expected_response_code", 
+        [("/starlink", "None", 200), 
+         ("/starlink/valid_id", "valid_ids", 200), 
+         ("/starlink/invalid_id", "invalid_ids", 404)])
+    def test_all_landpad_responses(self, response_code_data, route, id_type, expected_response_code):
+        if route == "/starlink":
+            url = self.BASE_URL
+        else:
+            satellite_id = ""
+            if id_type == "valid_ids":
+                satellite_id = response_code_data[id_type]['satellites']
+            else:
+                satellite_id = response_code_data[id_type]
+            url = f"{self.BASE_URL}/{satellite_id}"
         response = requests.get(url)
-        assert response.status_code == 200, f"Expected status code 200 for {self.BASE_URL}, but received {response.status_code} for {url}"
-    
-    def test_valid_satellite_id(self, response_code_data):
-        valid_satellite_id = response_code_data['valid_ids']['satellites']
-        url = f"{self.BASE_URL}/{valid_satellite_id}"
-        response = requests.get(url)
-        assert response.status_code == 200, f"Expected status code 200 for {url}, but received {response.status_code}"
-    
-    def test_invalid_satellite_id(self, response_code_data):
-        invalid_satellite_id = response_code_data['invalid_ids']['generic_invalid']
-        url = f"{self.BASE_URL}/{invalid_satellite_id}"
-        response = requests.get(url)
-        assert response.status_code == 404, f"Expected response code 404, but received {response.status_code} for {url}"
+        assert response.status_code == expected_response_code

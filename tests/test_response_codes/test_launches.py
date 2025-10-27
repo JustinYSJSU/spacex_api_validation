@@ -5,34 +5,30 @@ class TestResponseCodesLaunches:
     
     BASE_URL = "https://api.spacexdata.com/v4/launches"
 
-    def test_get_all_launches(self):
-        url = self.BASE_URL
-        response= requests.get(url)
-        assert response.status_code == 200, f"Expected status code 200 for {url}, but received {response.status_code}"
-    
-    def test_get_latest_launch(self):
-        url = f"{self.BASE_URL}/latest"
-        response= requests.get(url)
-        assert response.status_code == 200, f"Expected status code 200 for {url}, but received {response.status_code}"
-    
-    def test_get_next_launch(self):
-        url = f"{self.BASE_URL}/next"
-        response= requests.get(url)
-        assert response.status_code == 200, f"Expected status code 200 for {url}, but received {response.status_code}"
-    
-    def test_get_past_launches(self):
-        url = f"{self.BASE_URL}/past"
-        response= requests.get(url)
-        assert response.status_code == 200, f"Expected status code 200 for {url}, but received {response.status_code}"
-
-    def test_valid_launch_id(self, response_code_data):
-        valid_launch_id = response_code_data['valid_ids']['launches']
-        url = f"{self.BASE_URL}/{valid_launch_id}"
+    @pytest.mark.parametrize("route, id_type, expected_response_code", 
+        [("/launches", "None", 200), 
+         ("/launches/latest", "None", 200),
+         ("/launches/next", "None", 200),
+         ("/launches/past", "None", 200),
+         ("/launches/valid_id", "valid_ids", 200), 
+         ("/launches/invalid_id", "invalid_ids", 404)])
+    def test_all_landpad_responses(self, response_code_data, route, id_type, expected_response_code):
+        if route == "/launches":
+            url = self.BASE_URL
+        elif route == "/launches/latest":
+            url = f"{self.BASE_URL}/latest"
+        elif route == "/launches/next":
+            url = f"{self.BASE_URL}/next"
+        elif route == "/launches/past":
+            url = f"{self.BASE_URL}/past"
+        else:
+            launch_id = ""
+            if id_type == "valid_ids":
+                launch_id = response_code_data[id_type]['launches']
+            else:
+                launch_id = response_code_data[id_type]
+            url = f"{self.BASE_URL}/{launch_id}"
         response = requests.get(url)
-        assert response.status_code == 200, f"Expected status code 200 for {url}, but received {response.status_code}"
+        assert response.status_code == expected_response_code
 
-    def test_invalid_launch_id(self, response_code_data):
-        invalid_launch_id = response_code_data['invalid_ids']['generic_invalid']
-        url = f"{self.BASE_URL}/{invalid_launch_id}"
-        response = requests.get(url)
-        assert response.status_code == 404, f"Expected response code 404, but received {response.status_code} for {url}"
+   

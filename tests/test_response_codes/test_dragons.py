@@ -5,20 +5,19 @@ class TestResponseCodesDragons:
 
     BASE_URL = "https://api.spacexdata.com/v4/dragons"
 
-    def test_get_all_dragons(self):
-        url = self.BASE_URL
+    @pytest.mark.parametrize("route, id_type, expected_response_code", 
+        [("/dragons", "None", 200), 
+         ("/dragons/valid_id", "valid_ids", 200), 
+         ("/dragons/invalid_id", "invalid_ids", 404)])
+    def test_all_dragon_responses(self, response_code_data, route, id_type, expected_response_code):
+        if route == "/dragons":
+            url = self.BASE_URL
+        else:
+            dragon_id = ""
+            if id_type == "valid_ids":
+                dragon_id = response_code_data[id_type]['dragons']
+            else:
+                dragon_id = response_code_data[id_type]
+            url = f"{self.BASE_URL}/{dragon_id}"
         response = requests.get(url)
-        assert response.status_code == 200, f"Expected status code 200 for {url}, but received {response.status_code}"
-    
-    def test_valid_dragon_id(self, response_code_data):
-        valid_dragon_id = response_code_data['valid_ids']['dragons']
-        url = f"{self.BASE_URL}/{valid_dragon_id}"
-        response = requests.get(url)
-        assert response.status_code == 200, f"Expected status code 200 for {url}, but received {response.status_code}"
-
-    def test_invalid_dragon_id(self, response_code_data):
-        invalid_dragon_id = response_code_data['invalid_ids']['generic_invalid']
-        url = f"{self.BASE_URL}/{invalid_dragon_id}"
-        response = requests.get(url)
-        assert response.status_code == 404, f"Expected response code 404, but received {response.status_code} for {url}"
-
+        assert response.status_code == expected_response_code

@@ -5,19 +5,19 @@ class TestResponseCodesPayloads:
 
     BASE_URL = "https://api.spacexdata.com/v4/payloads"
 
-    def test_get_all_payloads(self):
-        url = self.BASE_URL
+    @pytest.mark.parametrize("route, id_type, expected_response_code", 
+        [("/payloads", "None", 200), 
+         ("/payloads/valid_id", "valid_ids", 200), 
+         ("/payloads/invalid_id", "invalid_ids", 404)])
+    def test_all_payloads_responses(self, response_code_data, route, id_type, expected_response_code):
+        if route == "/payloads":
+            url = self.BASE_URL
+        else:
+            payload_id = ""
+            if id_type == "valid_ids":
+                payload_id = response_code_data[id_type]['payloads']
+            else:
+                payload_id= response_code_data[id_type]
+            url = f"{self.BASE_URL}/{payload_id}"
         response = requests.get(url)
-        assert response.status_code == 200, f"Expected status code 200 for {url}, but received {response.status_code}"
-
-    def test_valid_payload_id(self, response_code_data):
-        valid_payload_id = response_code_data['valid_ids']['payloads']
-        url = f"{self.BASE_URL}/{valid_payload_id}"
-        response = requests.get(url)
-        assert response.status_code == 200, f"Expected status code 200 for {url}, but received {response.status_code}"
-    
-    def test_invalid_payload_id(self, response_code_data):
-        invalid_payload_id = response_code_data['invalid_ids']['generic_invalid']
-        url = f"{self.BASE_URL}/{invalid_payload_id}"
-        response = requests.get(url)
-        assert response.status_code == 404, f"Expected response code 404, but received {response.status_code} for {url}"
+        assert response.status_code == expected_response_code

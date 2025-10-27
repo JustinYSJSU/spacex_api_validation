@@ -5,20 +5,20 @@ class TestResponseCodeCores:
 
     BASE_URL = "https://api.spacexdata.com/v4/cores"
 
-    def test_get_all_cores(self):
-        url = self.BASE_URL
+    @pytest.mark.parametrize("route, id_type, expected_response_code", 
+        [("/cores", "None", 200), 
+         ("/cores/valid_id", "valid_ids", 200), 
+         ("/cores/invalid_id", "invalid_ids", 404)])
+    def test_all_core_responses(self, response_code_data, route, id_type, expected_response_code):
+        if route == "/cores":
+            url = self.BASE_URL
+        else:
+            core_id = ""
+            if id_type == "valid_ids":
+                core_id = response_code_data[id_type]['cores']
+            else:
+                core_id = response_code_data[id_type]
+            url = f"{self.BASE_URL}/{core_id}"
         response = requests.get(url)
-        assert response.status_code == 200, f"Expected status code 200 for {url}, but received {response.status_code}"
-    
-    def test_valid_core_id(self, response_code_data):
-        valid_core_id = response_code_data['valid_ids']['cores']
-        url = f"{self.BASE_URL}/{valid_core_id}"
-        response = requests.get(url)
-        assert response.status_code == 200, f"Expected status code 200 for {url}, but received {response.status_code}"
-    
-    def test_invalid_core_id(self, response_code_data):
-        invalid_core_id = response_code_data['invalid_ids']['generic_invalid']
-        url = f"{self.BASE_URL}/{invalid_core_id}"
-        response = requests.get(url)
-        assert response.status_code == 404, f"Expected status code 404 for {url}, but received {response.status_code}"
-    
+        assert response.status_code == expected_response_code
+
