@@ -1,62 +1,24 @@
 # SpaceX API Test Automation Suite
 
 ## Objective
-- Implement an automation suite for the SpaceX API [Link](https://github.com/r-spacex/SpaceX-API/tree/master)
-- Coverage for response code validation, schema validation, and error handling validation for the following routes (no auth)
+- Implement an automation suite for the SpaceX API [Link](https://github.com/r-spacex/SpaceX-API/tree/master), handing real engineering data and API endpoints.
+- Automation testing for API response codes and schema of returned data.
 
-## Routes Validation (GET only, no auth) 
+## Folder / File Structure
+- `/response_code_test_data` -> Contains `.yaml` file which stores 'id' values for each SpaceX entitiy. These 'id' values are used in response code testing to avoid hard coding values and enables a data-driven approach for maintainability.
+- `/schema_test_data` -> Contains `.yaml` files which store the expected schema for each SpaceX entity.
+- `/tests` -> Contains folders + files which automate response code and schema testing.
+  - `/test_response_codes` -> Contains `.py` files which automate response code testing.
+  - `/test_schema` -> Contains `.py` files which automate schema testing.
+  - `conftest.py` -> Conf file for two pytest fixtures, which are used in the `.py` test files to read data from provided `.yaml` files.
 
-### Capsules
-- Get all Capsules
-- Get 1 Capsule
+## Running Tests
+1.) Clone project repo: `git clone https://github.com/JustinYSJSU/spacex_api_validation/tree/main`
 
-### Company
-- Get all company info
+2.) Navigate to cloned repo directory
 
-### Cores
-- Get all cores
-- Get 1 core
+3.) Install required dependencies from `requirements.txt` file: `pip install -r requirements.txt`
 
-### Crew
-- Get all crew members
-- Get 1 crew member
+4.) Ensure current directory is `/spacex_api_validation`
 
-### Dragons
-- Get all dragon cores
-- Get 1 dragon core
-
-### Landing Pads
-- Get all landing pads
-- Get a landing pad
-
-### Launches
-- Get all launches
-- Get latest launch
-- Get next launch
-- Get 1 launch
-- Get all past launches
-
-### Launch Pads
-- Get all launch pads
-- Get 1 launch pad
-
-### Payloads
-- Get all payloads
-- Get 1 payload
-- Get roadster
-
-### Rockets
-- Get all rockets
-- Get 1 rocket
-
-### Ships
-- Get all ships
-- Get 1 ship
-
-### Starlink
-- Get all Starlink
-- Get 1 Starlink
-
-### Historic Events
-- Get all historic events
-- Get 1 historic event
+5.) Run `pytest` to execute the full test suite
