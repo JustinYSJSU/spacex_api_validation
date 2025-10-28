@@ -10,3 +10,4 @@
 - `/tests` -> Contains folders + files which automate response code and schema testing.
   - `/test_response_codes` -> Contains `.py` files which automate response code testing.
   - `/test_schema` -> Contains `.py` files which automate schema testing.
+  - `conftest.py` -> Conf file for two pytest fixtures, which are used in the `.py` test files to read data from provided `.yaml` files.
