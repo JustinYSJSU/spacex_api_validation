@@ -1,7 +1,7 @@
 # SpaceX API Test Automation Suite
 
 ## Objective
-- Implement an automation suite for the SpaceX API [Link](https://github.com/r-spacex/SpaceX-API/tree/master).
+- Implement an automation suite for the SpaceX API [Link](https://github.com/r-spacex/SpaceX-API/tree/master), handing real engineering data and API endpoints.
 - Automation testing for API response codes and schema of returned data.
 
 ## Folder / File Structure
