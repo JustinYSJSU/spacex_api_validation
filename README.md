@@ -18,3 +18,7 @@
 2.) Navigate to cloned repo directory
 
 3.) Install required dependencies from `requirements.txt` file: `pip install -r requirements.txt`
+
+4.) Ensure current directory is `/spacex_api_validation`
+
+5.) Run `pytest` to execute the full test suite
