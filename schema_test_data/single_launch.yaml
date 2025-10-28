@@ -1,10 +1,8 @@
 type: object
 required:
-  - fairings
   - links
   - static_fire_date_utc
   - static_fire_date_unix
-  - tdb
   - net
   - window
   - rocket
@@ -29,7 +27,22 @@ required:
 properties:
   fairings:
     type: [object, 'null']
-
+    required: 
+      - reused
+      - recovery_attempt
+      - recovered
+      - ships
+    properties:
+      reused:
+        type: [boolean, 'null']
+      recovery_attempt:
+        type: [boolean, 'null']
+      recovered:
+        type: [boolean, 'null']
+      ships:
+        type: array
+        items:
+          type: string
   links:
     type: object
     required:
@@ -44,89 +57,60 @@ properties:
     properties:
       patch:
         type: object
-        required: [small, large]
+        required: 
+          - small
+          - large
         properties:
-          small: string
-          large: string
+          small:
+            type: [string, 'null']
+          large:
+            type: [string, 'null']
       reddit:
         type: object
-        required: [campaign, launch, media, recovery]
+        required: 
+          - campaign
+          - launch
+          - media
+          - recovery
         properties:
-          campaign: [string, 'null']
-          launch: [string, 'null']
-          media: [string, 'null']
-          recovery: [string, 'null']
+          campaign:
+            type: [string, 'null']
+          launch:
+            type: [string, 'null']
+          media:
+            type: [string, 'null']
+          recovery:
+            type: [string, 'null']
       flickr:
         type: object
-        required: [small, original]
+        required:
+          - small
+          - original
         properties:
           small:
             type: array
-            items: string
+            items:
+              type: string
           original:
             type: array
-            items: string
-      presskit: [string, 'null']
-      webcast: [string, 'null']
-      youtube_id: [string, 'null']
-      article: [string, 'null']
-      wikipedia: [string, 'null']
-
-  static_fire_date_utc: [string, 'null']
-  static_fire_date_unix: [integer, 'null']
-  tdb: boolean
-  net: boolean
-  window: integer
-  rocket: string
-  success: [boolean, 'null']
-  failures:
-    type: array
-    items: object
-  details: [string, 'null']
-  crew:
-    type: array
-    items: string
-  ships:
-    type: array
-    items: string
-  capsules:
-    type: array
-    items: string
-  payloads:
-    type: array
-    items: string
-  launchpad: string
-  auto_update: boolean
-  flight_number: integer
-  name: string
-  date_utc: string
-  date_unix: integer
-  date_local: string
-  date_precision: string
-  upcoming: boolean
-  cores:
-    type: array
-    items:
-      type: object
-      required:
-        - core
-        - flight
-        - gridfins
-        - legs
-        - reused
-        - landing_attempt
-        - landing_success
-        - landing_type
-        - landpad
-      properties:
-        core: [string, 'null']
-        flight: [integer, 'null']
-        gridfins: [boolean, 'null']
-        legs: [boolean, 'null']
-        reused: [boolean, 'null']
-        landing_attempt: [boolean, 'null']
-        landing_success: [boolean, 'null']
-        landing_type: [string, 'null']
-        landpad: [string, 'null']
-
-  id: string
+            items:
+              type: string
+      presskit:
+        type: [string, 'null']
+      webcast:
+        type: [string, 'null']
+      youtube_id:
+        type: [string, 'null']
+      article:
+        type: [string, 'null']
+      wikipedia:
+        type: [string, 'null']
+  static_fire_date_utc:
+    type: [string, 'null']
+    format: date-time
+  static_fire_date_unix:
+    type: [integer, 'null']
+  tdb:
+    type: boolean
+  net:
+    type: boolean

@@ -24,34 +24,34 @@ required:
   - id
 properties:
   height:
-    type: object
-    required:
-      - meters
-      - feet
+    type: [object, "null"]
+    required: [meters, feet]
     properties:
-      meters: number
-      feet: number
+      meters:
+        type: [number, "null"]
+      feet:
+        type: [number, "null"]
 
   diameter:
-    type: object
-    required:
-      - meters
-      - feet
+    type: [object, "null"]
+    required: [meters, feet]
     properties:
-      meters: number
-      feet: number
+      meters:
+        type: [number, "null"]
+      feet:
+        type: [number, "null"]
 
   mass:
-    type: object
-    required:
-      - kg
-      - lb
+    type: [object, "null"]
+    required: [kg, lb]
     properties:
-      kg: number
-      lb: number
+      kg:
+        type: [number, "null"]
+      lb:
+        type: [number, "null"]
 
   first_stage:
-    type: object
+    type: [object, "null"]
     required:
       - thrust_sea_level
       - thrust_vacuum
@@ -61,24 +61,32 @@ properties:
       - burn_time_sec
     properties:
       thrust_sea_level:
-        type: object
+        type: [object, "null"]
         required: [kN, lbf]
         properties:
-          kN: number
-          lbf: number
+          kN:
+            type: [number, "null"]
+          lbf:
+            type: [number, "null"]
       thrust_vacuum:
-        type: object
+        type: [object, "null"]
         required: [kN, lbf]
         properties:
-          kN: number
-          lbf: number
-      reusable: boolean
-      engines: integer
-      fuel_amount_tons: number
-      burn_time_sec: number
+          kN:
+            type: [number, "null"]
+          lbf:
+            type: [number, "null"]
+      reusable:
+        type: [boolean, "null"]
+      engines:
+        type: [integer, "null"]
+      fuel_amount_tons:
+        type: [number, "null"]
+      burn_time_sec:
+        type: [number, "null"]
 
   second_stage:
-    type: object
+    type: [object, "null"]
     required:
       - thrust
       - payloads
@@ -88,43 +96,50 @@ properties:
       - burn_time_sec
     properties:
       thrust:
-        type: object
+        type: [object, "null"]
         required: [kN, lbf]
         properties:
-          kN: number
-          lbf: number
+          kN:
+            type: [number, "null"]
+          lbf:
+            type: [number, "null"]
       payloads:
-        type: object
-        required:
-          - composite_fairing
-          - option_1
+        type: [object, "null"]
+        required: [composite_fairing, option_1]
         properties:
           composite_fairing:
-            type: object
-            required:
-              - height
-              - diameter
+            type: [object, "null"]
+            required: [height, diameter]
             properties:
               height:
-                type: object
+                type: [object, "null"]
                 required: [meters, feet]
                 properties:
-                  meters: number
-                  feet: number
+                  meters:
+                    type: [number, "null"]
+                  feet:
+                    type: [number, "null"]
               diameter:
-                type: object
+                type: [object, "null"]
                 required: [meters, feet]
                 properties:
-                  meters: number
-                  feet: number
-          option_1: string
-      reusable: boolean
-      engines: integer
-      fuel_amount_tons: number
-      burn_time_sec: number
+                  meters:
+                    type: [number, "null"]
+                  feet:
+                    type: [number, "null"]
+          option_1:
+            type: [string, "null"]
+      reusable:
+        type: [boolean, "null"]
+      engines:
+        type: [integer, "null"]
+      fuel_amount_tons:
+        type: [number, "null"]
+      burn_time_sec:
+        type: [number, "null"]
 
   engines:
-    type: object
+    type: [object, "null"]
     required:
       - isp
       - thrust_sea_level
@@ -139,32 +154,98 @@ properties:
       - thrust_to_weight
     properties:
       isp:
-        type: object
+        type: [object, "null"]
         required: [sea_level, vacuum]
         properties:
-          sea_level: number
-          vacuum: number
+          sea_level:
+            type: [number, "null"]
+          vacuum:
+            type: [number, "null"]
       thrust_sea_level:
-        type: object
+        type: [object, "null"]
         required: [kN, lbf]
         properties:
-          kN: number
-          lbf: number
+          kN:
+            type: [number, "null"]
+          lbf:
+            type: [number, "null"]
       thrust_vacuum:
-        type: object
+        type: [object, "null"]
         required: [kN, lbf]
         properties:
-          kN: number
-          lbf: number
-      number: integer
-      type: string
-      version: string
-      layout: string
-      engine_loss_max: integer
-      propellant_1: string
-      propellant_2: string
-      thrust_to_weight: number
+          kN:
+            type: [number, "null"]
+          lbf:
+            type: [number, "null"]
+      number:
+        type: [integer, "null"]
+      type:
+        type: [string, "null"]
+      version:
+        type: [string, "null"]
+      layout:
+        type: [string, "null"]
+      engine_loss_max:
+        type: [integer, "null"]
+      propellant_1:
+        type: [string, "null"]
+      propellant_2:
+        type: [string, "null"]
+      thrust_to_weight:
+        type: [number, "null"]
 
   landing_legs:
-    type: object
-    required:
+    type: [object, "null"]
+    required: [number, material]
+    properties:
+      number:
+        type: [integer, "null"]
+      material:
+        type: [string, "null"]
+
+  payload_weights:
+    type: [array, "null"]
+    items:
+      type: [object, "null"]
+      required: [id, name, kg, lb]
+      properties:
+        id:
+          type: [string, "null"]
+        name:
+          type: [string, "null"]
+        kg:
+          type: [number, "null"]
+        lb:
+          type: [number, "null"]
+
+  flickr_images:
+    type: [array, "null"]
+    items:
+      type: [string, "null"]
+
+  name:
+    type: [string, "null"]
+  type:
+    type: [string, "null"]
+  active:
+    type: [boolean, "null"]
+  stages:
+    type: [integer, "null"]
+  boosters:
+    type: [integer, "null"]
+  cost_per_launch:
+    type: [number, "null"]
+  success_rate_pct:
+    type: [number, "null"]
+  first_flight:
+    type: [string, "null"]
+  country:
+    type: [string, "null"]
+  company:
+    type: [string, "null"]
+  wikipedia:
+    type: [string, "null"]
+  description:
+    type: [string, "null"]
+  id:
+    type: [string, "null"]

@@ -10,7 +10,7 @@ required:
   - id
 properties:
   spaceTrack:
-    type: object
+    type: [object, "null"]
     required:
       - CCSDS_OMM_VERS
       - COMMENT
@@ -54,51 +54,100 @@ properties:
       - TLE_LINE1
       - TLE_LINE2
     properties:
-      CCSDS_OMM_VERS: string
-      COMMENT: string
-      CREATION_DATE: string
-      ORIGINATOR: string
-      OBJECT_NAME: string
-      OBJECT_ID: string
-      CENTER_NAME: string
-      REF_FRAME: string
-      TIME_SYSTEM: string
-      MEAN_ELEMENT_THEORY: string
-      EPOCH: string
-      MEAN_MOTION: number
-      ECCENTRICITY: number
-      INCLINATION: number
-      RA_OF_ASC_NODE: number
-      ARG_OF_PERICENTER: number
-      MEAN_ANOMALY: number
-      EPHEMERIS_TYPE: integer
-      CLASSIFICATION_TYPE: string
-      NORAD_CAT_ID: integer
-      ELEMENT_SET_NO: integer
-      REV_AT_EPOCH: integer
-      BSTAR: number
-      MEAN_MOTION_DOT: number
-      MEAN_MOTION_DDOT: number
-      SEMIMAJOR_AXIS: number
-      PERIOD: number
-      APOAPSIS: number
-      PERIAPSIS: number
-      OBJECT_TYPE: string
-      RCS_SIZE: [number, 'null']
-      COUNTRY_CODE: string
-      LAUNCH_DATE: string
-      SITE: string
-      DECAY_DATE: [string, 'null']
-      DECAYED: integer
-      FILE: integer
-      GP_ID: integer
-      TLE_LINE0: string
-      TLE_LINE1: string
-      TLE_LINE2: string
-  version: string
-  launch: string
-  longitude: number
-  latitude: number
-  height_km: number
-  velocity_kms: number
-  id: string
+      CCSDS_OMM_VERS:
+        type: [string, "null"]
+      COMMENT:
+        type: [string, "null"]
+      CREATION_DATE:
+        type: [string, "null"]
+      ORIGINATOR:
+        type: [string, "null"]
+      OBJECT_NAME:
+        type: [string, "null"]
+      OBJECT_ID:
+        type: [string, "null"]
+      CENTER_NAME:
+        type: [string, "null"]
+      REF_FRAME:
+        type: [string, "null"]
+      TIME_SYSTEM:
+        type: [string, "null"]
+      MEAN_ELEMENT_THEORY:
+        type: [string, "null"]
+      EPOCH:
+        type: [string, "null"]
+      MEAN_MOTION:
+        type: [number, "null"]
+      ECCENTRICITY:
+        type: [number, "null"]
+      INCLINATION:
+        type: [number, "null"]
+      RA_OF_ASC_NODE:
+        type: [number, "null"]
+      ARG_OF_PERICENTER:
+        type: [number, "null"]
+      MEAN_ANOMALY:
+        type: [number, "null"]
+      EPHEMERIS_TYPE:
+        type: [integer, "null"]
+      CLASSIFICATION_TYPE:
+        type: [string, "null"]
+      NORAD_CAT_ID:
+        type: [integer, "null"]
+      ELEMENT_SET_NO:
+        type: [integer, "null"]
+      REV_AT_EPOCH:
+        type: [integer, "null"]
+      BSTAR:
+        type: [number, "null"]
+      MEAN_MOTION_DOT:
+        type: [number, "null"]
+      MEAN_MOTION_DDOT:
+        type: [number, "null"]
+      SEMIMAJOR_AXIS:
+        type: [number, "null"]
+      PERIOD:
+        type: [number, "null"]
+      APOAPSIS:
+        type: [number, "null"]
+      PERIAPSIS:
+        type: [number, "null"]
+      OBJECT_TYPE:
+        type: [string, "null"]
+      RCS_SIZE:
+        type: [string, "null"]
+      COUNTRY_CODE:
+        type: [string, "null"]
+      LAUNCH_DATE:
+        type: [string, "null"]
+      SITE:
+        type: [string, "null"]
+      DECAY_DATE:
+        type: [string, "null"]
+      DECAYED:
+        type: [integer, "null"]
+      FILE:
+        type: [integer, "null"]
+      GP_ID:
+        type: [integer, "null"]
+      TLE_LINE0:
+        type: [string, "null"]
+      TLE_LINE1:
+        type: [string, "null"]
+      TLE_LINE2:
+        type: [string, "null"]
+
+  version:
+    type: [string, "null"]
+  launch:
+    type: [string, "null"]
+  longitude:
+    type: [number, "null"]
+  latitude:
+    type: [number, "null"]
+  height_km:
+    type: [number, "null"]
+  velocity_kms:
+    type: [number, "null"]
+  id:
+    type: [string, "null"]

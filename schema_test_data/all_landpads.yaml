@@ -22,9 +22,9 @@ items:
         full_name:
           type: string
         status:
-          type: active
+          type: string
         type: # this is one of the requried properties name, not a typo
-          type: active
+          type: string
         locality:
           type: string
         region:

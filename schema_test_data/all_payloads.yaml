@@ -42,46 +42,80 @@ items:
         - water_landing
         - land_landing
       properties:
-        capsule: [string, 'null']
-        mass_returned_kg: [number, 'null']
-        mass_returned_lbs: [number, 'null']
-        flight_time_sec: [number, 'null']
-        manifest: [object, 'null']
-        water_landing: [boolean, 'null']
-        land_landing: [boolean, 'null']
+        capsule: 
+          type: [string, 'null']
+        mass_returned_kg: 
+          type: [number, 'null']
+        mass_returned_lbs: 
+          type: [number, 'null']
+        flight_time_sec: 
+          type: [number, 'null']
+        manifest: 
+          type: [object, 'string', 'null']
+        water_landing: 
+          type: [boolean, 'null']
+        land_landing: 
+          type: [boolean, 'null']
 
-    name: string
-    type: string
-    reused: boolean
-    launch: string
+    name: 
+      type: [string, 'null']
+    type: 
+      type: [string, 'null']
+    reused: 
+      type: boolean
+    launch: 
+      type: string
     customers:
       type: array
-      items: string
+      items: 
+       type: [string, 'null']
     norad_ids:
       type: array
-      items: integer
+      items: 
+       type: integer
     nationalities:
       type: array
-      items: string
+      items: 
+       type: [string, 'null']
     manufacturers:
       type: array
-      items: string
-    mass_kg: number
-    mass_lbs: number
-    orbit: string
-    reference_system: string
-    regime: string
-    longitude: [number, 'null']
-    semi_major_axis_km: number
-    eccentricity: number
-    periapsis_km: number
-    apoapsis_km: number
-    inclination_deg: number
-    period_min: number
-    lifespan_years: number
-    epoch: string
-    mean_motion: number
-    raan: number
-    arg_of_pericenter: number
-    mean_anomaly: number
-    id: string
+      items: 
+       type: [string, 'null']
+    mass_kg: 
+      type: [number, 'null']  
+    mass_lbs: 
+      type: [number, 'null']
+    orbit: 
+      type: [string, 'null']
+    reference_system: 
+      type: [string, 'null']
+    regime: 
+      type: [string, 'null']
+    longitude: 
+      type: [number, 'null']
+    semi_major_axis_km:
+      type: [number, 'null']
+    eccentricity:
+      type: [number, 'null']
+    periapsis_km: 
+      type: [number, 'null']
+    apoapsis_km: 
+      type: [number, 'null']
+    inclination_deg:
+      type: [number, 'null']
+    period_min: 
+      type: [number, 'null']
+    lifespan_years:
+      type: [number, 'null'] 
+    epoch: 
+      type: [string, 'null']
+    mean_motion:
+      type: [number, 'null']
+    raan:   
+      type: [number, 'null']
+    arg_of_pericenter: 
+      type: [number, 'null']
+    mean_anomaly: 
+      type: [number, 'null'] 
+    id: 
+      type: string

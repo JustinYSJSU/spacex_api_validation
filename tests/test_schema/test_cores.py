@@ -6,30 +6,22 @@ class TestSchemaCapsules():
 
     BASE_URL = "https://api.spacexdata.com/v4/cores"
 
-    def test_valid_schema_all_cores(self, schema_data):
-        valid_schema_all_cores = schema_data("all_cores.yaml")
-        url = self.BASE_URL
+    @pytest.mark.parametrize("route, id_type", 
+         [("/cores", "None"),
+         ("/cores/valid_id", "valid_ids")])
+    def test_all_core_schema(self, route, id_type, schema_data, response_code_data):
+        valid_schema = {}
+        if route == "/cores":
+            url = self.BASE_URL
+            valid_schema = schema_data("all_cores.yaml")
+        else:
+            valid_core_id = response_code_data[id_type]["cores"]
+            url = f"{self.BASE_URL}/{valid_core_id}"
+            valid_schema = schema_data("single_core.yaml")
+        self.verify_schema_cores(valid_schema, url)
+
+    def verify_schema_cores(self, valid_schama, url):
         response = requests.get(url)
 
         assert response.status_code == 200
-
-        response_data_json = response.json()
-        try:
-            validate(response_data_json, valid_schema_all_cores)
-        except ValidationError as e:
-            pytest.fail(f"Schema validation failed for: {e.message}")
-    
-    def test_valid_schema_single_core(self, schema_data, response_code_data):
-        valid_id_single_cores = response_code_data['valid_ids']['cores']
-        valid_schema_single_core = schema_data("single_core.yaml") # this is now a python dictionary
-
-        url = f"{self.BASE_URL}/{valid_id_single_cores}"
-        response = requests.get(url)
-
-        assert response.status_code == 200 # double check a successful call
-        response_data_json = response.json() # the actual 'data' of the response in JSON format
-
-        try:
-            validate(response_data_json, valid_schema_single_core)
-        except ValidationError as e:
-            pytest.fail(f"Schema validation failed for: {e.message}")
+        validate(response.json(), valid_schama)

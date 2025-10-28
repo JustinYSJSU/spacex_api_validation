@@ -40,7 +40,6 @@ properties:
         type: number
       dev_partner:
         type: string
-
   launch_payload_mass:
     type: object
     required: [kg, lb]
@@ -49,7 +48,6 @@ properties:
         type: number
       lb:
         type: number
-
   launch_payload_vol:
     type: object
     required: [cubic_meters, cubic_feet]
@@ -57,4 +55,4 @@ properties:
       cubic_meters:
         type: number
       cubic_feet:
-        type: numb
+        type: number

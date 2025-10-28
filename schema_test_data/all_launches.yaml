@@ -1,98 +1,118 @@
-type: object
-required:
-  - fairings
-  - links
-  - static_fire_date_utc
-  - static_fire_date_unix
-  - tdb
-  - net
-  - window
-  - rocket
-  - success
-  - failures
-  - details
-  - crew
-  - ships
-  - capsules
-  - payloads
-  - launchpad
-  - auto_update
-  - flight_number
-  - name
-  - date_utc
-  - date_unix
-  - date_local
-  - date_precision
-  - upcoming
-  - cores
-  - id
-properties:
-  fairings:
-    type: [object, 'null']
-
-  links:
-    type: object
-    required:
-      - patch
-      - reddit
-      - flickr
-      - presskit
-      - webcast
-      - youtube_id
-      - article
-      - wikipedia
-    properties:
-      patch:
-        type: object
-        required: [small, large]
-        properties:
-          small:
+type: array
+items:
+  type: object
+  required:
+    - links
+    - static_fire_date_utc
+    - static_fire_date_unix
+    - net
+    - window
+    - rocket
+    - success
+    - failures
+    - details
+    - crew
+    - ships
+    - capsules
+    - payloads
+    - launchpad
+    - auto_update
+    - flight_number
+    - name
+    - date_utc
+    - date_unix
+    - date_local
+    - date_precision
+    - upcoming
+    - cores
+    - id
+  properties:
+    fairings:
+      type: [object, 'null']
+      required: 
+        - reused
+        - recovery_attempt
+        - recovered
+        - ships
+      properties:
+        reused:
+          type: [boolean, 'null']
+        recovery_attempt:
+          type: [boolean, 'null']
+        recovered:
+          type: [boolean, 'null']
+        ships:
+          type: array
+          items:
             type: string
-          large:
-            type: string
-      reddit:
-        type: object
-        required: [campaign, launch, media, recovery]
-        properties:
-          campaign:
-            type: [string, 'null']
-          launch:
-            type: [string, 'null']
-          media:
-            type: [string, 'null']
-          recovery:
-            type: [string, 'null']
-      flickr:
-        type: object
-        required: [small, original]
-        properties:
-          small:
-            type: array
-            items:
-              type: string
-          original:
-            type: array
-            items:
-              type: string
-      presskit:
-        type: [string, 'null']
-      webcast:
-        type: [string, 'null']
-      youtube_id:
-        type: [string, 'null']
-      article:
-        type: [string, 'null']
-      wikipedia:
-        type: [string, 'null']
-
-  static_fire_date_utc:
-    type: [string, 'null']
-    format: date-time
-
-  static_fire_date_unix:
-    type: [integer, 'null']
-
-  tdb:
-    type: boolean
-
-  net:
+    links:
+      type: object
+      required:
+        - patch
+        - reddit
+        - flickr
+        - presskit
+        - webcast
+        - youtube_id
+        - article
+        - wikipedia
+      properties:
+        patch:
+          type: object
+          required: 
+            - small
+            - large
+          properties:
+            small:
+              type: [string, 'null']
+            large:
+              type: [string, 'null']
+        reddit:
+          type: object
+          required: 
+            - campaign
+            - launch
+            - media
+            - recovery
+          properties:
+            campaign:
+              type: [string, 'null']
+            launch:
+              type: [string, 'null']
+            media:
+              type: [string, 'null']
+            recovery:
+              type: [string, 'null']
+        flickr:
+          type: object
+          required:
+            - small
+            - original
+          properties:
+            small:
+              type: array
+              items:
+                type: string
+            original:
+              type: array
+              items:
+                type: string
+        presskit:
+          type: [string, 'null']
+        webcast:
+          type: [string, 'null']
+        youtube_id:
+          type: [string, 'null']
+        article:
+          type: [string, 'null']
+        wikipedia:
+          type: [string, 'null']
+    static_fire_date_utc:
+      type: [string, 'null']
+      format: date-time
+    static_fire_date_unix:
+      type: [integer, 'null']
+    tdb:
+      type: boolean
+    net:
+      type: boolean

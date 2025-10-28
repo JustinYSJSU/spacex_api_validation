@@ -1,29 +1,27 @@
 type: object
 required:
 - reuse_count
-- water_landings
 - last_update
 - launches
 - serial
 - status
-- type
 - id
 properties:
        reuse_count:
-         type: integer
+         type: [integer, "null"]
        water_landings: 
-         type: integer
+         type: [integer, "null"]
        land_landings: 
-         type: integer
+         type: [integer, "null"]
        last_update:
-         type: string
+         type: [string, "null"]
        launches:
-         type: array
+         type: [array, "null"]
          items:
-            type: string
+            type: [string, "null"]
        serial:
-          type: string
+          type: [string, "null"]
        status:
-          type: string
+          type: [string, "null"]
        id: 
-          type: string
+          type: [string, "null"]

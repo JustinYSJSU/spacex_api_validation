@@ -13,25 +13,36 @@ required:
 - cto
 - coo
 - cto_propulsion
-- valutation
 - summary
 - id
 
 properties:
         headquarters:
-          type: array
-          items:
-            type: string
+          type: object
+          properties:
+            address:
+              type: string
+            city:
+              type: string
+            state:
+              type: string
         links:
-          type: array
-          items:
-            type: string
+          type: object
+          properties:
+            website:
+              type: string
+            flickr:
+              type: string
+            twitter:
+              type: string
+            elon_twitter:
+              type: string
         name:
           type: string
         founder:
           type: string
         employees: 
-          type: string
+          type: integer
         vehicles:
           type: integer
         launch_sites:

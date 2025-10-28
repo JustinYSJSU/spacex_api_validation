@@ -27,31 +27,57 @@ items:
     - active
     - id
   properties:
-    legacy_id: string
-    model: [string, 'null']
-    type: string
+    legacy_id:
+      type: [string, "null"]
+    model:
+      type: [string, "null"]
+    type:
+      type: [string, "null"]
     roles:
-      type: array
-      items: string
-    imo: integer
-    mmsi: integer
-    abs: integer
-    class: integer
-    mass_kg: number
-    mass_lbs: number
-    year_built: integer
-    home_port: string
-    status: string
-    speed_kn: [number, 'null']
-    course_deg: [number, 'null']
-    latitude: [number, 'null']
-    longitude: [number, 'null']
-    last_ais_update: [string, 'null']
-    link: string
-    image: string
+      type: [array, "null"]
+      items:
+        type: [string, "null"]
+    imo:
+      type: [integer, "null"]
+    mmsi:
+      type: [integer, "null"]
+    abs:
+      type: [integer, "null"]
+    class:
+      type: [integer, "null"]
+    mass_kg:
+      type: [number, "null"]
+    mass_lbs:
+      type: [number, "null"]
+    year_built:
+      type: [integer, "null"]
+    home_port:
+      type: [string, "null"]
+    status:
+      type: [string, "null"]
+    speed_kn:
+      type: [number, "null"]
+    course_deg:
+      type: [number, "null"]
+    latitude:
+      type: [number, "null"]
+    longitude:
+      type: [number, "null"]
+    last_ais_update:
+      type: [string, "null"]
+    link:
+      type: [string, "null"]
+    image:
+      type: [string, "null"]
     launches:
-      type: array
-      items: string
-    name: string
-    active: boolean
-    id: string
+      type: [array, "null"]
+      items:
+        type: [string, "null"]
+    name:
+      type: [string, "null"]
+    active:
+      type: [boolean, "null"]
+    id:
+      type: [string, "null"]
+
+
