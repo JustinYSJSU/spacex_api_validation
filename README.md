@@ -11,3 +11,10 @@
   - `/test_response_codes` -> Contains `.py` files which automate response code testing.
   - `/test_schema` -> Contains `.py` files which automate schema testing.
   - `conftest.py` -> Conf file for two pytest fixtures, which are used in the `.py` test files to read data from provided `.yaml` files.
+
+## Running Tests
+1.) Clone project repo: `git clone https://github.com/JustinYSJSU/spacex_api_validation/tree/main`
+
+2.) Navigate to cloned repo directory
+
+3.) Install required dependencies from `requirements.txt` file: `pip install -r requirements.txt`
