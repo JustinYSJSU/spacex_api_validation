@@ -40,6 +40,4 @@ class TestSchemaLaunches:
         try: 
             validate(response.json(), valid_schama)
         except ValidationError as e:
-            print("MESSAGE:", e.message)
-            print("PATH:", list(e.path))
-            print("CAUSE:", e.cause)
+             pytest.fail(f"Failed to validate schema: {e.message}")

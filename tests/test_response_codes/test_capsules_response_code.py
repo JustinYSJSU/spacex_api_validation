@@ -21,5 +21,5 @@ class TestResponseCodeCapsules:
                 capsule_id= response_code_data[id_type]
             url = f"{self.BASE_URL}/{capsule_id}"
         response = requests.get(url)
-        assert response.status_code == expected_response_code
+        assert response.status_code == expected_response_code, f"Expected status code {expected_response_code} for {self.BASE_URL}, but received {response.status_code} for {url}"
 

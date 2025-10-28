@@ -24,4 +24,9 @@ class TestSchemaCapsules():
         response = requests.get(url)
 
         assert response.status_code == 200
-        validate(response.json(), valid_schama)
+        try:    
+            validate(response.json(), valid_schama)
+        except ValidationError as e:
+            pytest.fail(f"Failed to validate schema: {e.message}")
+
+
