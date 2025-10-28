@@ -1,8 +1,8 @@
 # SpaceX API Test Automation Suite
 
 ## Objective
-- Implement an automation suite for the SpaceX API [Link](https://github.com/r-spacex/SpaceX-API/tree/master)
-- Coverage for response code validation, schema validation, and error handling validation for the following routes (no auth)
+- Implement an automation suite for the SpaceX API [Link](https://github.com/r-spacex/SpaceX-API/tree/master).
+- Automation testing for API response codes and schema of returned data.
 
 ## Folder / File Structure
 - `/response_code_test_data` -> Contains `.yaml` file which stores 'id' values for each SpaceX entitiy. These 'id' values are used in response code testing to avoid hard coding values and enables a data-driven approach for maintainability.
