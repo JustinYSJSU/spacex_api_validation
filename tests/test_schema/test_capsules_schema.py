@@ -15,7 +15,7 @@ class TestSchemaCapsules():
             url = self.BASE_URL
             valid_schema = schema_data("all_capsules.yaml")
         else:
-            valid_capsule_id = response_code_data[id_type]["capules"]
+            valid_capsule_id = response_code_data[id_type]["capsules"]
             url = f"{self.BASE_URL}/{valid_capsule_id}"
             valid_schema = schema_data("single_capsule.yaml")
         self.verify_schema_capsules(valid_schema, url)
