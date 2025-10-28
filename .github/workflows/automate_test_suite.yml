@@ -8,6 +8,8 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  schedule:
+    - cron: '0 16 * * *' # cron expression syntax: ' min | hour | day of month | month | day of week ' in UTC (this is daily @ 8AM PST)
 
 permissions:
   contents: read
