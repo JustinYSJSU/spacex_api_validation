@@ -26,4 +26,5 @@
 ## Continuous Integration (CI)
 - Uses GitHub Actions as a CI system. 
 - With each push to 'main' branch, the CI system will run through the API validation suite, catching any new issues automatically. 
-- Results are saved as "GitHub Artifacts"
+- Results are saved as "GitHub Artifacts".
+- A 'cron' job is also ran daily at 8AM PST.
