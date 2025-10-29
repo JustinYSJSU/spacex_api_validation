@@ -22,3 +22,9 @@
 4.) Ensure current directory is `/spacex_api_validation`
 
 5.) Run `pytest` to execute the full test suite
+
+## Continuous Integration (CI)
+- Uses GitHub Actions as a CI system. 
+- With each push to 'main' branch, the CI system will run through the API validation suite, catching any new issues automatically. 
+- Results are saved as "GitHub Artifacts".
+- A 'cron' job is also ran daily at 8AM PST.
