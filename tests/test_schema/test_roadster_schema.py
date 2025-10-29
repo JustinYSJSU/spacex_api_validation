@@ -7,6 +7,7 @@ class TestSchemaCodeRoadster:
 
     BASE_URL = "https://api.spacexdata.com/v4/roadster"
 
+    @pytest.mark.schema
     def test_roadster_all(self, schema_data):
         url = self.BASE_URL
         valid_comapny_schema = schema_data("roadster.yaml")

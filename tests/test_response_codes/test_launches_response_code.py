@@ -12,7 +12,8 @@ class TestResponseCodesLaunches:
          ("/launches/past", "None", 200),
          ("/launches/valid_id", "valid_ids", 200), 
          ("/launches/invalid_id", "invalid_ids", 404)])
-    def test_all_landpad_responses(self, response_code_data, route, id_type, expected_response_code):
+    @pytest.mark.response_code
+    def test_all_launches_responses(self, response_code_data, route, id_type, expected_response_code):
         if route == "/launches":
             url = self.BASE_URL
         elif route == "/launches/latest":

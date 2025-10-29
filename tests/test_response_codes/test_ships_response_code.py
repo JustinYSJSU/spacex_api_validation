@@ -9,7 +9,8 @@ class TestResponseCodesShips:
         [("/ships", "None", 200), 
          ("/ships/valid_id", "valid_ids", 200), 
          ("/ships/invalid_id", "invalid_ids", 404)])
-    def test_all_landpad_responses(self, response_code_data, route, id_type, expected_response_code):
+    @pytest.mark.response_code
+    def test_all_ships_responses(self, response_code_data, route, id_type, expected_response_code):
         if route == "/ships":
             url = self.BASE_URL
         else:

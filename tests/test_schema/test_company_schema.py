@@ -7,6 +7,7 @@ class TestSchemaCodeCompany:
 
     BASE_URL = "https://api.spacexdata.com/v4/company"
 
+    @pytest.mark.schema
     def test_company_all(self, schema_data):
         url = self.BASE_URL
         valid_comapny_schema = schema_data("company.yaml")

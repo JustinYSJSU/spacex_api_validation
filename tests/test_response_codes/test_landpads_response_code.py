@@ -9,6 +9,7 @@ class TestResponseCodesLandpads:
         [("/landpads", "None", 200), 
          ("/landpads/valid_id", "valid_ids", 200), 
          ("/landpads/invalid_id", "invalid_ids", 404)])
+    @pytest.mark.response_code
     def test_all_landpad_responses(self, response_code_data, route, id_type, expected_response_code):
         if route == "/landpads":
             url = self.BASE_URL

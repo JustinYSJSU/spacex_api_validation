@@ -9,6 +9,7 @@ class TestSchemaCapsules():
     @pytest.mark.parametrize("route, id_type", 
          [("/cores", "None"),
          ("/cores/valid_id", "valid_ids")])
+    @pytest.mark.schema
     def test_all_core_schema(self, route, id_type, schema_data, response_code_data):
         valid_schema = {}
         if route == "/cores":

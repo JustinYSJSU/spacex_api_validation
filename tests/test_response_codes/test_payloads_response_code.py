@@ -9,6 +9,7 @@ class TestResponseCodesPayloads:
         [("/payloads", "None", 200), 
          ("/payloads/valid_id", "valid_ids", 200), 
          ("/payloads/invalid_id", "invalid_ids", 404)])
+    @pytest.mark.response_code
     def test_all_payloads_responses(self, response_code_data, route, id_type, expected_response_code):
         if route == "/payloads":
             url = self.BASE_URL

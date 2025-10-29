@@ -9,6 +9,7 @@ class TestSchemaDragons:
     @pytest.mark.parametrize("route, id_type", 
          [("/dragons", "None"),
          ("/dragons/valid_id", "valid_ids")])
+    @pytest.mark.schema
     def test_all_dragon_schema(self, route, id_type, schema_data, response_code_data):
         valid_schema = {}
         if route == "/dragons":

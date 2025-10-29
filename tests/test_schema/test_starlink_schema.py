@@ -9,6 +9,7 @@ class TestSchemaStarlink:
     @pytest.mark.parametrize("route, id_type", 
          [("/starlink", "None"),
          ("/starlink/valid_id", "valid_ids")])
+    @pytest.mark.schema
     def test_all_schema_starlink(self, route, id_type, schema_data, response_code_data):
         valid_schema = {}
         if route == "/starlink":

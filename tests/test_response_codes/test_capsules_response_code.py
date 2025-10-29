@@ -10,6 +10,7 @@ class TestResponseCodeCapsules:
         [("/capsules", "None", 200), 
          ("/capules/valid_id", "valid_ids", 200), 
          ("/capsules/invalid_id", "invalid_ids", 404)])
+    @pytest.mark.response_code
     def test_all_capsule_response_codes(self, response_code_data, route, id_type, expected_response_code):
         if route == "/capsules":
             url = self.BASE_URL

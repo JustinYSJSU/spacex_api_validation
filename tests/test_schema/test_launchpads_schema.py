@@ -9,7 +9,8 @@ class TestSchemaLaunchpads:
     @pytest.mark.parametrize("route, id_type", 
          [("/launchpads", "None"),
          ("/launchpads/valid_id", "valid_ids")])
-    def test_all_launch_schema(self, route, id_type, schema_data, response_code_data):
+    @pytest.mark.schema
+    def test_all_launchpad_schema(self, route, id_type, schema_data, response_code_data):
         valid_schema = {}
         if route == "/launchpads":
             url = self.BASE_URL

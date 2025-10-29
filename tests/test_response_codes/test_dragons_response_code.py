@@ -9,6 +9,7 @@ class TestResponseCodesDragons:
         [("/dragons", "None", 200), 
          ("/dragons/valid_id", "valid_ids", 200), 
          ("/dragons/invalid_id", "invalid_ids", 404)])
+    @pytest.mark.response_code
     def test_all_dragon_responses(self, response_code_data, route, id_type, expected_response_code):
         if route == "/dragons":
             url = self.BASE_URL

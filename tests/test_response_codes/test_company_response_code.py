@@ -1,10 +1,11 @@
 import requests
-import yaml
+import pytest 
 
 class TestResponseCodeCompany:
 
     BASE_URL = "https://api.spacexdata.com/v4/company"
 
+    @pytest.mark.response_code
     def test_company_all(self):
         url = self.BASE_URL
         response = requests.get(url)
