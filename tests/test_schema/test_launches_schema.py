@@ -1,3 +1,24 @@
+"""
+test_launches_schema.py
+
+This file contains automated tests for the SpaceX Launch API endpoints.
+It validates:
+- Schema (all required properties, and their typing)
+
+Data Sources:
+- response_code_test_data/response_code_data.yaml -> contains valid and invalid test IDs
+- schema_test_data/all_launches.yaml -> contains valid schema for a sample set of 'all landpads' data. this also includes schema for past launches
+- schema_test_data/single_launch.yaml -> contains valid schema for a 'single' launch data. this also includes schema for latest and next launch
+
+Uses a paramterized fixture to easily interate through all test cases / parameters
+- All launches
+- Latest launch
+- Next launch
+- Past launches
+- Single launch
+
+Contains helper function to streamline schema validation. All routes call this function to avoid repeat code
+"""
 import pytest
 import requests
 from jsonschema import validate, ValidationError

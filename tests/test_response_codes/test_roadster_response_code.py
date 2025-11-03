@@ -2,7 +2,6 @@
 test_roadster_response_code.py
 
 Tests for SpaceX roadster information endpoints
-Follows the same structure and logic as test_capsules_response_codes.py.
 """
 import requests
 import pytest

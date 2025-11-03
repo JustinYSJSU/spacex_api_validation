@@ -1,3 +1,21 @@
+"""
+test_capsules_schema.py
+
+This file contains automated tests for the SpaceX Cores API endpoints.
+It validates:
+- Schema (all required properties, and their typing)
+
+Data Sources:
+- response_code_test_data/response_code_data.yaml -> contains valid and invalid test IDs
+- schema_test_data/all_cores.yaml -> contains valid schema for a sample set of 'all cores' data
+- schema_test_data/single_core.yaml -> contains valid schema for a 'single' core data
+
+Uses a paramterized fixture to easily interate through all test cases / parameters
+- All cores
+- Single core
+
+Contains helper function to streamline schema validation. All routes call this function to avoid repeat code
+"""
 import pytest
 import requests
 from jsonschema import validate, ValidationError

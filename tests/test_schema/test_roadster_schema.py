@@ -1,3 +1,13 @@
+"""
+test_roadster_schema.py
+
+This file contains automated tests for the SpaceX Company API endpoints.
+It validates:
+- Schema (all required properties, and their typing)
+
+Data Sources:
+- schema_test_data/roadster.yaml -> contains valid schema for a sample set of 'roadster' data
+"""
 import requests
 import pytest
 from jsonschema import validate, ValidationError
