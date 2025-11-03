@@ -1,3 +1,9 @@
+"""
+test_starlink_response_code.py
+
+Tests for SpaceX starlink satellite information endpoints
+Follows the same structure and logic as test_capsules_response_codes.py.
+"""
 import pytest
 import requests
 

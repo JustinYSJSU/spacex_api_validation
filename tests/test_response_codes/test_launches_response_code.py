@@ -1,3 +1,11 @@
+"""
+test_launches_response_code.py
+
+Tests for SpaceX launch information endpoints
+Follows the same structure and logic as test_capsules_response_codes.py.
+In the parameterized fixture, includes extra routes for latest, next, past launches
+"""
+
 import pytest
 import requests
 
