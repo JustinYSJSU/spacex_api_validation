@@ -1,7 +1,7 @@
 import requests
 import pytest
 
-class TestResponseCodeCompany:
+class TestResponseCodeRoadster:
 
     BASE_URL = "https://api.spacexdata.com/v4/roadster"
 

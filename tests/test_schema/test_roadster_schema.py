@@ -1,5 +1,4 @@
 import requests
-import yaml
 import pytest
 from jsonschema import validate, ValidationError
 
