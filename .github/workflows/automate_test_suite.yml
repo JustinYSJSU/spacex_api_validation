@@ -51,6 +51,7 @@ jobs:
     - name: Upload Allure Report Artifact
       uses: actions/upload-artifact@v4
       with:
+          name: github-pages
           path: allure-report
   deploy-report:
       environment:
