@@ -14,7 +14,7 @@ Uses a paramterized fixture to easily interate through all test cases / paramete
 - All payloads
 - Single payload
 
-Contains helper function to streamline schema validation. All routes call this function to avoid repeat code
+Contains helper function to streamline schema validation. All routes call this function to avoid repeat code.
 """
 import pytest
 import requests
