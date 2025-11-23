@@ -30,7 +30,8 @@ jobs:
     - name: Install Allure CLI
       run: | 
          sudo apt update
-         sudo apt install openjkd-17-jre
+         sudo apt install default-jdk
+         java -version
          # Install Allure
          ALLURE_VERSION="2.27.0" # Use a recent version
          curl -o allure.tgz -L https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/${ALLURE_VERSION}/allure-commandline-${ALLURE_VERSION}.tgz
