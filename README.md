@@ -12,19 +12,8 @@
   - `/test_schema` -> Contains `.py` files which automate schema testing.
   - `conftest.py` -> Conf file for two pytest fixtures, which are used in the `.py` test files to read data from provided `.yaml` files.
 
-## Running Tests
-1.) Clone project repo: `git clone https://github.com/JustinYSJSU/spacex_api_validation/tree/main`
-
-2.) Navigate to cloned repo directory
-
-3.) Install required dependencies from `requirements.txt` file: `pip install -r requirements.txt`
-
-4.) Ensure current directory is `/spacex_api_validation`
-
-5.) Run `pytest` to execute the full test suite
-
-## Continuous Integration (CI)
+## Continuous Integration (CI) & Reporting
 - Uses GitHub Actions as a CI system. 
 - With each push to 'main' branch, the CI system will run through the API validation suite, catching any new issues automatically. 
-- Results are saved as "GitHub Artifacts".
+- Report is generated via allure and deployed for viewing using GitHub Pages.
 - A 'cron' job is also ran daily at 8AM PST.
