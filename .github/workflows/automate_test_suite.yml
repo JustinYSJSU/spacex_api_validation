@@ -29,7 +29,7 @@ jobs:
         python-version: "3.10"
     - name: Install Allure CLI
       run: | 
-         sudo apt get update
+         sudo apt update
          sudo apt install openjkd-17-jre
          # Install Allure
          ALLURE_VERSION="2.27.0" # Use a recent version
