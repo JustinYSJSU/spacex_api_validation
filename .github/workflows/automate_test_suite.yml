@@ -28,15 +28,15 @@ jobs:
       with:
         python-version: "3.10"
     - name: Install Allure CLI
-      run: | 
-         sudo apt update
-         sudo apt install default-jdk
-         java -version
-         # Install Allure
-         ALLURE_VERSION="2.27.0" # Use a recent version
-         curl -o allure.tgz -L https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/${ALLURE_VERSION}/allure-commandline-${ALLURE_VERSION}.tgz
-         tar -zxvf allure.tgz
-         sudo mv allure-${ALLURE_VERSION}/bin/allure /usr/local/bin/
+      run: |
+        sudo apt-get update
+        sudo apt-get install openjdk-17-jre   
+        ALLURE_VERSION="2.27.0"
+        ALLURE_HOME="/opt/allure-report" # Define a system-wide home location
+        curl -o allure.tgz -L https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/${ALLURE_VERSION}/allure-commandline-${ALLURE_VERSION}.tgz
+        tar -zxvf allure.tgz
+        sudo mv allure-${ALLURE_VERSION} ${ALLURE_HOME}
+        echo "${ALLURE_HOME}/bin" >> $GITHUB_PATH
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
