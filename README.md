@@ -16,7 +16,7 @@ root/
     │  
     └── conftest.py            # Conf file for two pytest fixtures, which are used in the `.py` test files to read data from provided `.yaml` files.
 ```
-
+o
 ## Continuous Integration (CI) & Reporting
 - Uses GitHub Actions as a CI system. 
 - With each push to 'main' branch, the CI system will run through the API validation suite, catching any new issues automatically. 
