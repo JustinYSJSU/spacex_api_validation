@@ -47,18 +47,18 @@ jobs:
           pip install pytest flake8
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Download previous Allure report
-        uses: actions/download-pages-artifact@v3
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
         with:
-          name: github-pages
-          path: allure-report
+          ref: gh-pages
+          path: gh-pages
         continue-on-error: true
 
       - name: Restore Allure history
         run: |
-          if [ -d previous-report/history ]; then
+          if [ -d gh-pages/history ]; then
             mkdir -p allure-results/history
-            cp -r previous-report/history/* allure-results/history/
+            cp -r gh-pages/history/* allure-results/history/
           fi
 
       - name: Run tests with pytest
@@ -70,11 +70,10 @@ jobs:
           allure generate allure-results \
             -o allure-report \
             --clean
-            
+
       - name: Upload Allure Report Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages
           path: allure-report
 
   deploy-report:
