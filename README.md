@@ -14,7 +14,8 @@ root/
     ├── test_response_codes/ # Contains .py files which automate response code testing.
     ├── test_schema/         # Contains `.py` files which automate schema testing.
     │  
-    └── conftest.py            # Conf file for two pytest fixtures, which are used in the `.py` test files to read data from provided `.yaml` files.
+    └── conftest.py          # Conf file for two pytest fixtures, which are used in the `.py`
+                               test files to read data from provided `.yaml` files.
 ```
 ## Continuous Integration (CI) & Reporting
 - Uses GitHub Actions as a CI system. 
