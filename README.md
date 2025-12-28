@@ -8,8 +8,8 @@
 ```
 root/
 ├── response_code_test_data/   # Contains `.yaml` file which stores 'id' values for each SpaceX entitiy. These 'id' values are used in response code testing to avoid hard coding values and enables a data-driven approach for maintainability.
-├── schema_test_data/
-│   └── schemas.yaml           # Stores expected schema definitions
+├── schema_test_data/ # Stores expected schema definitions
+│
 └── tests/
     ├── test_response_codes/ # Contains .py files which automate response code testing.
     ├── test_schema/         # Contains `.py` files which automate schema testing.
