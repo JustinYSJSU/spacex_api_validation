@@ -39,11 +39,11 @@ class TestSchemaDragons:
             valid_schema = schema_data("single_dragon.yaml")
         self.verify_schema_dragon(valid_schema, url)
 
-    def verify_schema_dragon(self, valid_schama, url):
+    def verify_schema_dragon(self, valid_schema, url):
         response = requests.get(url)
 
         assert response.status_code == 200
         try: 
-            validate(response.json(), valid_schama)
+            validate(response.json(), valid_schema)
         except ValidationError as e:
             pytest.fail(f"Failed to validate schema: {e.message}")
