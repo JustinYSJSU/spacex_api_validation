@@ -1,5 +1,7 @@
 # SpaceX API Test Automation Suite
 
+**Note: SpaceX API was achrived as of 6/6/2026. Daily cron job has been disabled**
+
 ## Objective
 - Implement an automation suite for the publicly available [SpaceX API](https://github.com/r-spacex/SpaceX-API/tree/master), handing real engineering data and API endpoints.
 - Automation testing for API response codes and schema of returned data.
@@ -21,4 +23,4 @@ root/
 - Uses GitHub Actions as a CI system. 
 - With each push to 'main' branch, the CI system will run through the API validation suite, catching any new issues automatically. 
 - Report is generated via allure and deployed for viewing using GitHub Pages.
-- A 'cron' job is also ran daily at 8AM PST.
+- ~~A 'cron' job is also ran daily at 8AM PST.~~
